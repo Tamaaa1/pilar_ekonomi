@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upaya Pembangunan Ekonomi</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="title">Upaya Pembangunan Ekonomi</h1>
+            <p class="subtitle">Tiga Pilar Utama Pembangunan Ekonomi Berkelanjutan</p>
+        </header>
+        
+        <div class="pillars">
+            <div class="pillar" id="health">
+                <div class="icon-container">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <h2>Peningkatan Kesehatan</h2>
+                <div class="pillar-content">
+                    <p>Kesehatan masyarakat yang baik merupakan fondasi dari ekonomi yang kuat. Investasi di bidang kesehatan berpengaruh pada:</p>
+                    <ul>
+                        <li>Produktivitas tenaga kerja</li>
+                        <li>Pengurangan biaya perawatan jangka panjang</li>
+                        <li>Peningkatan angka harapan hidup</li>
+                        <li>Penguatan sistem kesehatan nasional</li>
+                    </ul>
+                    <button class="learn-more" data-pillar="health">Pelajari Lebih Lanjut</button>
+                </div>
+            </div>
+            
+            <div class="pillar" id="welfare">
+                <div class="icon-container">
+                    <i class="fas fa-hands-holding"></i>
+                </div>
+                <h2>Peningkatan Kesejahteraan</h2>
+                <div class="pillar-content">
+                    <p>Kesejahteraan sosial memastikan manfaat ekonomi dirasakan oleh seluruh lapisan masyarakat. Aspek penting meliputi:</p>
+                    <ul>
+                        <li>Jaminan sosial dan pensiun</li>
+                        <li>Akses perumahan yang terjangkau</li>
+                        <li>Pemerataan pendapatan</li>
+                        <li>Pengembangan ekonomi inklusif</li>
+                    </ul>
+                    <button class="learn-more" data-pillar="welfare">Pelajari Lebih Lanjut</button>
+                </div>
+            </div>
+            
+            <div class="pillar" id="education">
+                <div class="icon-container">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h2>Pemerataan Pendidikan</h2>
+                <div class="pillar-content">
+                    <p>Pendidikan adalah kunci untuk mobilitas sosial dan inovasi ekonomi. Fokus utama meliputi:</p>
+                    <ul>
+                        <li>Akses pendidikan berkualitas untuk semua</li>
+                        <li>Pengembangan keterampilan yang relevan dengan industri</li>
+                        <li>Investasi dalam riset dan pengembangan</li>
+                        <li>Pendidikan vokasi dan kewirausahaan</li>
+                    </ul>
+                    <button class="learn-more" data-pillar="education">Pelajari Lebih Lanjut</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Modal -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2 id="modal-title"></h2>
+                <div id="modal-body"></div>
+                <div class="modal-chart">
+                    <canvas id="dataChart"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <section class="integration">
+            <h2>Integrasi Ketiga Pilar</h2>
+            <div class="integration-content">
+                <div class="integration-diagram">
+                    <div class="circle health-circle">Kesehatan</div>
+                    <div class="circle welfare-circle">Kesejahteraan</div>
+                    <div class="circle education-circle">Pendidikan</div>
+                    <div class="middle">Pembangunan Ekonomi</div>
+                </div>
+                <div class="integration-text">
+                    <p>Pembangunan ekonomi yang berkelanjutan memerlukan pendekatan holistik. Kesehatan, kesejahteraan, dan pendidikan saling bergantung dan memperkuat satu sama lain:</p>
+                    <ul>
+                        <li>Masyarakat yang sehat memiliki kapasitas lebih untuk belajar dan bekerja</li>
+                        <li>Pendidikan yang merata menciptakan kesempatan ekonomi yang adil</li>
+                        <li>Kesejahteraan sosial mengurangi kesenjangan dan meningkatkan stabilitas ekonomi</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section class="call-to-action">
+            <h2>Berpartisipasi dalam Pembangunan</h2>
+            <p>Setiap individu dapat berkontribusi dalam pembangunan ekonomi yang berkelanjutan.</p>
+            <button id="contribution-btn">Cara Berkontribusi</button>
+        </section>
+    </div>
+    
+    <!-- <footer>
+        <p>&copy;</p>
+    </footer> -->
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

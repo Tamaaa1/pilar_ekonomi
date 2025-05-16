@@ -1,0 +1,513 @@
+/* Google Font imports */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #2c3e50;
+    --health-color: #3498db;
+    --welfare-color: #e74c3c;
+    --education-color: #f39c12;
+    --transition-time: 0.4s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+}
+
+.title {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 25%;
+    width: 50%;
+    height: 4px;
+    background: linear-gradient(to right, var(--health-color), var(--welfare-color), var(--education-color));
+    border-radius: 2px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+}
+
+/* Pillars Section */
+.pillars {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.pillar {
+    flex: 1;
+    min-width: 300px;
+    background-color: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform var(--transition-time), box-shadow var(--transition-time);
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: calc(var(--delay) * 0.2s);
+    position: relative;
+    overflow: hidden;
+}
+
+#health {
+    --delay: 1;
+    border-top: 5px solid var(--health-color);
+}
+
+#welfare {
+    --delay: 2;
+    border-top: 5px solid var(--welfare-color);
+}
+
+#education {
+    --delay: 3;
+    border-top: 5px solid var(--education-color);
+}
+
+.pillar:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.icon-container {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 2.2rem;
+    background-color: #ecf0f1;
+    transition: transform 0.5s ease;
+}
+
+#health .icon-container {
+    color: var(--health-color);
+}
+
+#welfare .icon-container {
+    color: var(--welfare-color);
+}
+
+#education .icon-container {
+    color: var(--education-color);
+}
+
+.pillar:hover .icon-container {
+    transform: rotateY(360deg);
+}
+
+.pillar h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.pillar-content {
+    opacity: 0.8;
+    transition: opacity var(--transition-time);
+}
+
+.pillar:hover .pillar-content {
+    opacity: 1;
+}
+
+.pillar-content p {
+    margin-bottom: 1rem;
+}
+
+.pillar-content ul {
+    list-style-position: inside;
+    margin-bottom: 1.5rem;
+}
+
+.pillar-content li {
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.5rem;
+    list-style-type: none;
+}
+
+#health .pillar-content li::before {
+    content: '•';
+    color: var(--health-color);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+#welfare .pillar-content li::before {
+    content: '•';
+    color: var(--welfare-color);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+#education .pillar-content li::before {
+    content: '•';
+    color: var(--education-color);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.learn-more {
+    display: block;
+    margin: 0 auto;
+    padding: 0.6rem 1.2rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+#health .learn-more:hover {
+    background-color: var(--health-color);
+    transform: scale(1.05);
+}
+
+#welfare .learn-more:hover {
+    background-color: var(--welfare-color);
+    transform: scale(1.05);
+}
+
+#education .learn-more:hover {
+    background-color: var(--education-color);
+    transform: scale(1.05);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 2rem;
+    width: 80%;
+    max-width: 800px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(-50px);
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.modal.show {
+    opacity: 1;
+}
+
+.modal.show .modal-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: var(--primary-color);
+}
+
+.modal-chart {
+    margin-top: 2rem;
+    height: 300px;
+}
+
+/* Integration Section */
+.integration {
+    padding: 3rem 0;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 0.8s;
+}
+
+.integration h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+    font-size: 2rem;
+}
+
+.integration-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+}
+
+.integration-diagram {
+    flex: 1;
+    min-width: 350px;
+    height: 350px;
+    position: relative;
+}
+
+.circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 500;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease;
+}
+
+.health-circle {
+    background-color: var(--health-color);
+    top: 0;
+    left: 30%;
+}
+
+.welfare-circle {
+    background-color: var(--welfare-color);
+    bottom: 20%;
+    left: 10%;
+}
+
+.education-circle {
+    background-color: var(--education-color);
+    bottom: 20%;
+    right: 10%;
+}
+
+.circle:hover {
+    transform: scale(1.1);
+    z-index: 10;
+}
+
+.middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    text-align: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    z-index: 5;
+}
+
+.integration-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.integration-text p {
+    margin-bottom: 1rem;
+}
+
+.integration-text ul {
+    list-style-position: inside;
+}
+
+.integration-text li {
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.5rem;
+    list-style-type: none;
+}
+
+.integration-text li::before {
+    content: '→';
+    color: var(--primary-color);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* Call to Action */
+.call-to-action {
+    text-align: center;
+    margin: 3rem 0;
+    padding: 3rem;
+    background-color: #f1f1f1;
+    border-radius: 15px;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 1s;
+}
+
+.call-to-action h2 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.call-to-action p {
+    margin-bottom: 1.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#contribution-btn {
+    padding: 0.8rem 2rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+#contribution-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.7s ease;
+}
+
+#contribution-btn:hover {
+    transform: scale(1.05);
+}
+
+#contribution-btn:hover::before {
+    left: 100%;
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    position: relative;
+    margin-top: 2rem;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .pillars {
+        flex-direction: column;
+    }
+    
+    .pillar {
+        min-width: 100%;
+    }
+    
+    .integration-content {
+        flex-direction: column;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 5% auto;
+    }
+    
+    .title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .title {
+        font-size: 1.8rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    .circle {
+        width: 100px;
+        height: 100px;
+        font-size: 0.9rem;
+    }
+    
+    .middle {
+        width: 120px;
+        height: 120px;
+        font-size: 0.9rem;
+    }
+}
